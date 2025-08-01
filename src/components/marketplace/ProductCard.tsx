@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Heart, ShoppingCart, Eye } from 'lucide-react';
+import { Heart, Eye } from 'lucide-react';
 import { Product } from '@/data/products';
 import { cn } from '@/lib/utils';
 
@@ -89,7 +89,7 @@ export default function ProductCard({ product, onViewDetails, className }: Produ
           )}
         </div>
 
-        {/* Quick Add Button */}
+        {/* Contact for Price Button */}
         <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <Button
             size="sm"
@@ -97,11 +97,11 @@ export default function ProductCard({ product, onViewDetails, className }: Produ
             disabled={!product.inStock}
             onClick={(e) => {
               e.stopPropagation();
-              // Handle add to cart
+              onViewDetails(product);
             }}
           >
-            <ShoppingCart className="h-4 w-4 mr-2" />
-            {product.inStock ? 'Add to Cart' : 'Out of Stock'}
+            <Eye className="h-4 w-4 mr-2" />
+            {product.inStock ? 'View Details' : 'Out of Stock'}
           </Button>
         </div>
       </div>

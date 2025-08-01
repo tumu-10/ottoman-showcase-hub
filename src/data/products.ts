@@ -62,7 +62,7 @@ const agriculturalProducts: Product[] = [
       'Max Speed': '40 km/h',
       'Hydraulic Capacity': '120 L/min'
     },
-    images: ['/placeholder.svg', '/placeholder.svg', '/placeholder.svg'],
+    images: ['https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800', 'https://images.unsplash.com/photo-1465379944081-7f47de8d74ac?w=800'],
     inStock: true,
     featured: true,
     manufacturer: 'ProField Industries',
@@ -81,7 +81,7 @@ const agriculturalProducts: Product[] = [
       'Depth Control': 'Pneumatic',
       'Power Requirement': '150 HP'
     },
-    images: ['/placeholder.svg', '/placeholder.svg'],
+    images: ['https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800'],
     inStock: true,
     featured: false,
     manufacturer: 'SmartSeed Tech',
@@ -100,7 +100,7 @@ const agriculturalProducts: Product[] = [
       'Cleaning System': 'Multi-stage',
       'Threshing Type': 'Axial-flow'
     },
-    images: ['/placeholder.svg', '/placeholder.svg', '/placeholder.svg'],
+    images: ['https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800', 'https://images.unsplash.com/photo-1465379944081-7f47de8d74ac?w=800'],
     inStock: true,
     featured: true,
     manufacturer: 'HarvestMax Corp',
@@ -120,7 +120,7 @@ const agriculturalProducts: Product[] = [
       'Material': 'Galvanized Steel',
       'Warranty': '5 years'
     },
-    images: ['/placeholder.svg', '/placeholder.svg'],
+    images: ['https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800'],
     inStock: true,
     featured: false,
     manufacturer: 'IrrigatePro',
@@ -139,7 +139,7 @@ const agriculturalProducts: Product[] = [
       'Frame Material': 'High-strength steel',
       'Weight': '2,800 kg'
     },
-    images: ['/placeholder.svg', '/placeholder.svg'],
+    images: ['https://images.unsplash.com/photo-1465379944081-7f47de8d74ac?w=800'],
     inStock: true,
     featured: false,
     manufacturer: 'SoilMaster',
@@ -172,7 +172,7 @@ for (let i = 6; i <= 55; i++) {
       'Weight': `${Math.floor(Math.random() * 5000) + 1000} kg`,
       'Certification': 'CE, ISO 9001'
     },
-    images: ['/placeholder.svg', '/placeholder.svg'],
+    images: ['https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800'],
     inStock: Math.random() > 0.1,
     featured: Math.random() > 0.8,
     manufacturer,
@@ -195,7 +195,7 @@ const beekeepingProducts: Product[] = [
       'Frame Type': 'Assembled',
       'Foundation': 'Wax-coated'
     },
-    images: ['/placeholder.svg', '/placeholder.svg', '/placeholder.svg'],
+    images: ['https://images.unsplash.com/photo-1498936178812-4b2e558d2937?w=800', 'https://images.unsplash.com/photo-1498936178812-4b2e558d2937?w=800'],
     inStock: true,
     featured: true,
     manufacturer: 'BeeMax',
@@ -214,7 +214,7 @@ const beekeepingProducts: Product[] = [
       'Pockets': '6 cargo pockets',
       'Sizes': 'S-XXXL available'
     },
-    images: ['/placeholder.svg', '/placeholder.svg'],
+    images: ['https://images.unsplash.com/photo-1498936178812-4b2e558d2937?w=800'],
     inStock: true,
     featured: true,
     manufacturer: 'BeePro',
@@ -247,7 +247,7 @@ for (let i = 3; i <= 52; i++) {
       'Origin': 'EU manufactured',
       'Weight': `${Math.floor(Math.random() * 5) + 0.5} kg`
     },
-    images: ['/placeholder.svg'],
+    images: ['https://images.unsplash.com/photo-1498936178812-4b2e558d2937?w=800'],
     inStock: Math.random() > 0.05,
     featured: Math.random() > 0.85,
     manufacturer,
@@ -286,7 +286,7 @@ for (let i = 1; i <= 50; i++) {
       'Material': 'Industrial grade',
       'Certification': 'CE, UL Listed'
     },
-    images: ['/placeholder.svg', '/placeholder.svg'],
+    images: ['https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800', 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800'],
     inStock: Math.random() > 0.1,
     featured: Math.random() > 0.85,
     manufacturer,
@@ -318,7 +318,7 @@ for (let i = 1; i <= 50; i++) {
       'Certification': 'FDA, CE, ISO 13485',
       'Service': '24/7 support available'
     },
-    images: ['/placeholder.svg', '/placeholder.svg'],
+    images: ['https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800', 'https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=800'],
     inStock: Math.random() > 0.15,
     featured: Math.random() > 0.8,
     manufacturer,
@@ -350,7 +350,7 @@ for (let i = 1; i <= 50; i++) {
       'Lead Time': `${Math.floor(Math.random() * 10) + 5} business days`,
       'Colors': 'Multiple options'
     },
-    images: ['/placeholder.svg'],
+    images: ['https://images.unsplash.com/photo-1581090464777-f3220bbe1e8b?w=800', 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800'],
     inStock: true,
     featured: Math.random() > 0.9,
     manufacturer,
