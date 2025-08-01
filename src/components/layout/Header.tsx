@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Search, ShoppingCart } from 'lucide-react';
+import { Menu, X, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navigation = [
@@ -53,13 +53,10 @@ export default function Header() {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground hover-scale">
               <Search className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
-              <ShoppingCart className="h-4 w-4" />
-            </Button>
-            <Button size="sm" className="btn-primary">
+            <Button size="sm" className="btn-primary hover-scale">
               Get Quote
             </Button>
           </div>

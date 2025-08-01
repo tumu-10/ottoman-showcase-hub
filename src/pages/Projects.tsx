@@ -2,6 +2,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Calendar, MapPin, Users, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const projects = [
   {
@@ -12,7 +13,7 @@ const projects = [
     location: "Antalya, Turkey",
     date: "2024",
     teamSize: "12 specialists",
-    image: "/placeholder.svg",
+    image: "/src/assets/project-agricultural.jpg",
     highlights: [
       "Installed 15 ProField Tractor 2000X units",
       "Deployed smart irrigation covering 500 hectares", 
@@ -29,7 +30,7 @@ const projects = [
     location: "Izmir, Turkey",
     date: "2024",
     teamSize: "8 specialists",
-    image: "/placeholder.svg", 
+    image: "/src/assets/beekeeping-hive.jpg",
     highlights: [
       "Set up 200 BeeMax Langstroth hive systems",
       "Installed professional honey extraction facility",
@@ -46,7 +47,7 @@ const projects = [
     location: "Istanbul, Turkey", 
     date: "2024",
     teamSize: "15 specialists",
-    image: "/placeholder.svg",
+    image: "/src/assets/project-medical.jpg",
     highlights: [
       "Installed 50+ pieces of advanced medical equipment",
       "Provided comprehensive staff training",
@@ -63,7 +64,7 @@ const projects = [
     location: "Bursa, Turkey",
     date: "2023",
     teamSize: "10 specialists", 
-    image: "/placeholder.svg",
+    image: "/src/assets/vocational-tools.jpg",
     highlights: [
       "Equipped 8 specialized workshops",
       "Installed 200+ professional tools",
@@ -80,7 +81,7 @@ const projects = [
     location: "Ankara, Turkey",
     date: "2023",
     teamSize: "6 specialists",
-    image: "/placeholder.svg",
+    image: "/src/assets/promotional-items.jpg",
     highlights: [
       "Produced 50,000+ branded items",
       "Delivered to 25 international offices",
@@ -97,7 +98,7 @@ const projects = [
     location: "Konya, Turkey",
     date: "2023", 
     teamSize: "14 specialists",
-    image: "/placeholder.svg",
+    image: "/src/assets/project-tech.jpg",
     highlights: [
       "Integrated IoT sensors across 300 hectares",
       "Deployed autonomous farming equipment",
@@ -228,13 +229,15 @@ export default function Projects() {
 
                   {/* Action Button */}
                   <div className="pt-2">
-                    <Button 
-                      variant="outline" 
-                      className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-200"
-                    >
-                      View Case Study
-                      <ExternalLink className="h-4 w-4 ml-2" />
-                    </Button>
+                    <Link to={`/case-study/${project.id}`}>
+                      <Button 
+                        variant="outline" 
+                        className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-200 hover-scale"
+                      >
+                        View Case Study
+                        <ExternalLink className="h-4 w-4 ml-2" />
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </CardContent>

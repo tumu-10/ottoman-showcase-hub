@@ -10,7 +10,6 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
-  ShoppingCart, 
   Heart, 
   Share2, 
   ChevronLeft, 
@@ -164,24 +163,24 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
             {/* Action Buttons */}
             <div className="flex gap-3">
               <Button 
-                className="flex-1 btn-primary" 
+                className="flex-1 btn-primary hover-scale" 
                 disabled={!product.inStock}
                 size="lg"
               >
-                <ShoppingCart className="h-4 w-4 mr-2" />
-                {product.inStock ? 'Add to Cart' : 'Out of Stock'}
+                <Mail className="h-4 w-4 mr-2" />
+                {product.inStock ? 'Request Quote' : 'Out of Stock'}
               </Button>
               
               <Button
                 variant="outline"
                 size="lg"
                 onClick={() => setIsLiked(!isLiked)}
-                className={cn(isLiked && "text-red-500 border-red-200")}
+                className={cn("hover-scale", isLiked && "text-red-500 border-red-200")}
               >
                 <Heart className={cn("h-4 w-4", isLiked && "fill-current")} />
               </Button>
               
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" className="hover-scale">
                 <Share2 className="h-4 w-4" />
               </Button>
             </div>
