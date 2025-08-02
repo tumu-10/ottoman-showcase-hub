@@ -19,11 +19,11 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 220 15% 15%;
 
-    /* Ottoman Copper Primary - Professional and warm */
-    --primary: 15 75% 45%;
+    /* Ottoman Primary - Corporate Teal */
+    --primary: 197 78% 28%;
     --primary-foreground: 0 0% 98%;
-    --primary-hover: 15 75% 40%;
-    --primary-glow: 15 100% 65%;
+    --primary-hover: 197 78% 23%;
+    --primary-glow: 197 78% 38%;
 
     /* Steel Secondary - Industrial strength */
     --secondary: 220 15% 92%;
@@ -33,10 +33,10 @@ All colors MUST be HSL.
     --muted: 220 10% 95%;
     --muted-foreground: 220 10% 45%;
 
-    /* Accent - Machinery Blue */
-    --accent: 210 85% 60%;
+    /* Accent - Ottoman Cyan */
+    --accent: 180 92% 38%;
     --accent-foreground: 0 0% 98%;
-    --accent-light: 210 85% 85%;
+    --accent-light: 180 92% 85%;
 
     --destructive: 0 75% 55%;
     --destructive-foreground: 0 0% 98%;
@@ -93,10 +93,10 @@ All colors MUST be HSL.
     --popover: 220 25% 10%;
     --popover-foreground: 220 10% 92%;
 
-    --primary: 15 85% 55%;
+    --primary: 197 78% 35%;
     --primary-foreground: 220 25% 8%;
-    --primary-hover: 15 85% 50%;
-    --primary-glow: 15 100% 70%;
+    --primary-hover: 197 78% 30%;
+    --primary-glow: 197 78% 45%;
 
     --secondary: 220 20% 18%;
     --secondary-foreground: 220 10% 85%;
@@ -105,9 +105,9 @@ All colors MUST be HSL.
     --muted: 220 20% 15%;
     --muted-foreground: 220 10% 65%;
 
-    --accent: 210 85% 65%;
+    --accent: 180 92% 45%;
     --accent-foreground: 220 25% 8%;
-    --accent-light: 210 85% 20%;
+    --accent-light: 180 92% 20%;
 
     --destructive: 0 75% 60%;
     --destructive-foreground: 220 10% 92%;
@@ -236,5 +236,116 @@ All colors MUST be HSL.
   .shimmer {
     background: linear-gradient(90deg, transparent, hsl(var(--muted)), transparent);
     @apply animate-pulse;
+  }
+
+  /* Hero Text Animations */
+  .text-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: textReveal 1s ease-out forwards;
+  }
+
+  .text-typewriter {
+    overflow: hidden;
+    border-right: 2px solid hsl(var(--primary));
+    white-space: nowrap;
+    animation: typewriter 3s steps(40, end), blink 0.75s step-end infinite;
+  }
+
+  @keyframes textReveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: hsl(var(--primary)); }
+  }
+
+  /* Floating Elements */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .float-delay {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Interactive Elements */
+  .interactive-card {
+    @apply transition-all duration-300 cursor-pointer;
+    transform-style: preserve-3d;
+  }
+
+  .interactive-card:hover {
+    transform: translateY(-5px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 20px 40px hsl(var(--primary) / 0.15);
+  }
+
+  /* Stats Counter Animation */
+  .counter {
+    @apply font-bold text-3xl lg:text-4xl;
+    color: hsl(var(--primary));
+  }
+
+  /* Background Slideshow */
+  .hero-slideshow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+  }
+
+  .hero-slide.active {
+    opacity: 1;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary) / 0.8) 0%,
+      hsl(var(--accent) / 0.6) 50%,
+      hsl(220 25% 25% / 0.8) 100%
+    );
+  }
+
+  /* Vector Animation Elements */
+  .vector-float {
+    animation: vectorFloat 8s ease-in-out infinite;
+  }
+
+  @keyframes vectorFloat {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(10px, -15px) rotate(5deg); }
+    50% { transform: translate(-5px, -25px) rotate(-3deg); }
+    75% { transform: translate(-10px, -10px) rotate(7deg); }
   }
 }

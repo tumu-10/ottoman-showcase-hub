@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import ottomanLogo from "@/assets/ottoman-logo.png";
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -21,9 +22,11 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
-              <span className="text-primary-foreground font-bold text-lg">OE</span>
-            </div>
+            <img 
+              src={ottomanLogo} 
+              alt="Ottoman Enterprises Logo" 
+              className="w-10 h-10 object-contain transition-all duration-300 group-hover:scale-105 animate-pulse-glow"
+            />
             <div className="hidden sm:block">
               <h1 className="text-xl font-semibold text-foreground">Ottoman Enterprises</h1>
               <p className="text-xs text-muted-foreground">Professional Equipment Solutions</p>
