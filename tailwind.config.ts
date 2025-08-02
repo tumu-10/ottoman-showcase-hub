@@ -18,10 +18,6 @@ export default {
 			}
 		},
 		extend: {
-			fontFamily: {
-				sans: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-				poppins: ['Poppins', 'sans-serif'],
-			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -169,14 +165,6 @@ export default {
 						opacity: '0.8',
 						transform: 'scale(1.05)'
 					}
-				},
-				'spin-slow': {
-					'0%': { transform: 'rotate(0deg)' },
-					'100%': { transform: 'rotate(360deg)' }
-				},
-				'morph': {
-					'0%, 100%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' },
-					'50%': { borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%' }
 				}
 			},
 			animation: {
@@ -185,11 +173,9 @@ export default {
 				'fade-in': 'fade-in 0.6s ease-out',
 				'slide-up': 'slide-up 0.5s ease-out',
 				'scale-in': 'scale-in 0.4s ease-out',
-				'text-reveal': 'text-reveal 0.8s ease-out forwards',
-				'counter-up': 'counter-up 0.5s ease-out forwards',
-				'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
-				'spin-slow': 'spin-slow 8s linear infinite',
-				'morph': 'morph 8s ease-in-out infinite',
+				'text-reveal': 'text-reveal 1s ease-out forwards',
+				'counter-up': 'counter-up 0.8s ease-out forwards',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
 				'bounce': 'bounce 1s infinite',
 				'ping': 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite'
 			}

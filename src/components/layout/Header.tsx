@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import ottomanLogo from '@/assets/ottoman-logo-horizontal.png';
+import ottomanLogo from "@/assets/ottoman-logo.png";
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -25,8 +25,12 @@ export default function Header() {
             <img 
               src={ottomanLogo} 
               alt="Ottoman Enterprises Logo" 
-              className="h-8 object-contain transition-all duration-300 group-hover:scale-105 animate-pulse-glow"
+              className="w-10 h-10 object-contain transition-all duration-300 group-hover:scale-105 animate-pulse-glow"
             />
+            <div className="hidden sm:block">
+              <h1 className="text-xl font-semibold text-foreground">Ottoman Enterprises</h1>
+              <p className="text-xs text-muted-foreground">Professional Equipment Solutions</p>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

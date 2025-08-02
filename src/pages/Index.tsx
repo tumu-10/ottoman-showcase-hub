@@ -9,7 +9,6 @@ import { useState, useEffect } from 'react';
 import ProductModal from '@/components/marketplace/ProductModal';
 import { Product } from '@/data/products';
 import { useCounterAnimation } from '@/hooks/useCounterAnimation';
-import { cn } from '@/lib/utils';
 
 import heroSlide1 from '@/assets/hero-slide-1.jpg';
 import heroSlide2 from '@/assets/hero-slide-2.jpg';
@@ -61,7 +60,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background font-poppins">
+    <div className="min-h-screen bg-background">
       {/* Hero Section with Slideshow */}
       <section className="relative h-[80vh] min-h-[600px] overflow-hidden hero-slideshow">
         {/* Background Slides */}
@@ -76,51 +75,17 @@ const Index = () => {
         {/* Gradient Overlay */}
         <div className="hero-overlay" />
         
-        {/* Vector Flow Elements */}
-        <div className="absolute top-10 right-10 w-40 h-80 opacity-15 animate-float">
-          <svg viewBox="0 0 200 400" className="w-full h-full">
-            <path
-              d="M50 50 Q150 150 100 250 Q50 350 150 400"
-              stroke="hsl(var(--secondary))"
-              strokeWidth="2"
-              fill="none"
-              className="animate-pulse"
-            />
-            <path
-              d="M100 30 Q200 120 120 220 Q80 320 180 380"
-              stroke="hsl(var(--primary))"
-              strokeWidth="1.5"
-              fill="none"
-              className="animate-pulse delay-500"
-            />
+        {/* Floating Vector Elements */}
+        <div className="absolute top-20 right-20 w-16 h-16 text-accent/20 vector-float">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L22 8.5V15.5L12 22L2 15.5V8.5L12 2Z"/>
           </svg>
         </div>
         
-        {/* Geometric Elements */}
-        <div className="absolute top-32 left-16 flex space-x-4 animate-float delay-300">
-          <div className="w-6 h-6 border-2 border-secondary rounded-full animate-pulse" />
-          <div className="w-4 h-4 bg-secondary rounded-full animate-pulse delay-200" />
-          <div className="w-5 h-5 border border-primary rounded-full animate-pulse delay-400" />
-        </div>
-        
-        <div className="absolute bottom-32 left-20 flex space-x-3 animate-float delay-700">
-          <div className="w-0 h-0 border-l-[10px] border-r-[10px] border-b-[15px] border-l-transparent border-r-transparent border-b-secondary animate-pulse" />
-          <div className="w-0 h-0 border-l-[8px] border-r-[8px] border-b-[12px] border-l-transparent border-r-transparent border-b-primary animate-pulse delay-300" />
-          <div className="w-0 h-0 border-l-[9px] border-r-[9px] border-b-[14px] border-l-transparent border-r-transparent border-b-secondary animate-pulse delay-600" />
-        </div>
-        
-        {/* Dots Pattern */}
-        <div className="absolute bottom-40 right-20 grid grid-cols-3 gap-2 animate-float delay-1000">
-          {[...Array(9)].map((_, i) => (
-            <div
-              key={i}
-              className={cn(
-                "w-2 h-2 rounded-full animate-pulse",
-                i % 3 === 0 ? "bg-primary" : i % 3 === 1 ? "bg-secondary" : "border border-primary"
-              )}
-              style={{ animationDelay: `${i * 100}ms` }}
-            />
-          ))}
+        <div className="absolute bottom-32 left-20 w-12 h-12 text-primary/30 vector-float" style={{ animationDelay: '2s' }}>
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="10"/>
+          </svg>
         </div>
         
         <div className="relative container mx-auto px-4 lg:px-6 h-full flex items-center">
@@ -129,28 +94,14 @@ const Index = () => {
               Professional Equipment Solutions Since 2009
             </Badge>
             
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white font-poppins">
-              <span className="inline-block animate-text-reveal">Professional</span>{' '}
-              <span className="inline-block animate-text-reveal delay-200">Equipment</span>
-              <span className="block gradient-text-hero animate-text-reveal delay-400">
-                Solutions
-              </span>
+            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              <span className="text-reveal" style={{ animationDelay: '0.2s' }}>Ottoman</span> <br />
+              <span className="text-reveal gradient-text" style={{ animationDelay: '0.4s' }}>Enterprises</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl font-poppins animate-fade-in delay-600">
-              <span className="inline-block animate-text-reveal delay-800">Discover</span>{' '}
-              <span className="inline-block animate-text-reveal delay-1000">premium</span>{' '}
-              <span className="inline-block animate-text-reveal delay-1200">agricultural,</span>{' '}
-              <span className="inline-block animate-text-reveal delay-1400">medical,</span>{' '}
-              <span className="inline-block animate-text-reveal delay-1600">promotional,</span>{' '}
-              <span className="inline-block animate-text-reveal delay-1800">and</span>{' '}
-              <span className="inline-block animate-text-reveal delay-2000">vocational</span>{' '}
-              <span className="inline-block animate-text-reveal delay-2200">equipment</span>
-              <br />
-              <span className="inline-block animate-text-reveal delay-2400">from</span>{' '}
-              <span className="inline-block animate-text-reveal delay-2600">trusted</span>{' '}
-              <span className="inline-block animate-text-reveal delay-2800">brands</span>{' '}
-              <span className="inline-block animate-text-reveal delay-3000">worldwide.</span>
+            <p className="text-xl lg:text-2xl mb-8 text-white/90 leading-relaxed text-reveal" style={{ animationDelay: '0.6s' }}>
+              Your trusted partner for professional-grade equipment across agricultural, 
+              medical, vocational, and specialized industries.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 text-reveal" style={{ animationDelay: '0.8s' }}>
@@ -186,67 +137,31 @@ const Index = () => {
       </section>
 
       {/* Animated Stats Section */}
-      <section className="py-20 bg-muted/30 relative overflow-hidden">
-        {/* Background Vector Elements */}
-        <div className="absolute inset-0 opacity-5">
-          <svg className="absolute top-0 left-0 w-full h-full" viewBox="0 0 1200 400">
-            <path
-              d="M0 200 Q300 100 600 200 Q900 300 1200 200"
-              stroke="hsl(var(--primary))"
-              strokeWidth="2"
-              fill="none"
-              className="animate-pulse"
-            />
-            <path
-              d="M0 150 Q400 250 800 150 Q1000 50 1200 150"
-              stroke="hsl(var(--secondary))"
-              strokeWidth="1.5"
-              fill="none"
-              className="animate-pulse delay-1000"
-            />
+      <section className="py-16 bg-gradient-industrial relative overflow-hidden">
+        {/* Background Decoration */}
+        <div className="absolute top-10 right-10 w-20 h-20 text-primary/10 float">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L22 8.5V15.5L12 22L2 15.5V8.5L12 2Z"/>
           </svg>
         </div>
         
-        <div className="container mx-auto px-4 relative">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="group hover:scale-105 transition-transform duration-300" ref={productsCounter.countRef}>
-              <div className="relative p-6 rounded-2xl bg-background/50 backdrop-blur-sm border border-primary/20 hover:border-primary/40 transition-all duration-300">
-                <div className="text-5xl font-bold font-poppins mb-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent animate-counter-up">
-                  {productsCounter.count}+
-                </div>
-                <div className="text-muted-foreground font-poppins font-medium">Products</div>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
+        <div className="container mx-auto px-4 lg:px-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            <div className="interactive-card p-6 rounded-lg" ref={productsCounter.countRef}>
+              <div className="counter mb-2">{productsCounter.count}+</div>
+              <div className="text-sm lg:text-base text-muted-foreground">Products Available</div>
             </div>
-            
-            <div className="group hover:scale-105 transition-transform duration-300 delay-200" ref={projectsCounter.countRef}>
-              <div className="relative p-6 rounded-2xl bg-background/50 backdrop-blur-sm border border-primary/20 hover:border-primary/40 transition-all duration-300">
-                <div className="text-5xl font-bold font-poppins mb-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent animate-counter-up">
-                  {projectsCounter.count}+
-                </div>
-                <div className="text-muted-foreground font-poppins font-medium">Projects</div>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
+            <div className="interactive-card p-6 rounded-lg" ref={projectsCounter.countRef}>
+              <div className="counter mb-2">{projectsCounter.count}+</div>
+              <div className="text-sm lg:text-base text-muted-foreground">Projects Completed</div>
             </div>
-            
-            <div className="group hover:scale-105 transition-transform duration-300 delay-400" ref={satisfactionCounter.countRef}>
-              <div className="relative p-6 rounded-2xl bg-background/50 backdrop-blur-sm border border-primary/20 hover:border-primary/40 transition-all duration-300">
-                <div className="text-5xl font-bold font-poppins mb-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent animate-counter-up">
-                  {satisfactionCounter.count}%
-                </div>
-                <div className="text-muted-foreground font-poppins font-medium">Client Satisfaction</div>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
+            <div className="interactive-card p-6 rounded-lg" ref={satisfactionCounter.countRef}>
+              <div className="counter mb-2">{satisfactionCounter.count}%</div>
+              <div className="text-sm lg:text-base text-muted-foreground">Client Satisfaction</div>
             </div>
-            
-            <div className="group hover:scale-105 transition-transform duration-300 delay-600" ref={experienceCounter.countRef}>
-              <div className="relative p-6 rounded-2xl bg-background/50 backdrop-blur-sm border border-primary/20 hover:border-primary/40 transition-all duration-300">
-                <div className="text-5xl font-bold font-poppins mb-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent animate-counter-up">
-                  {experienceCounter.count}+
-                </div>
-                <div className="text-muted-foreground font-poppins font-medium">Years Experience</div>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
+            <div className="interactive-card p-6 rounded-lg" ref={experienceCounter.countRef}>
+              <div className="counter mb-2">{experienceCounter.count}+</div>
+              <div className="text-sm lg:text-base text-muted-foreground">Years Experience</div>
             </div>
           </div>
         </div>
@@ -256,10 +171,10 @@ const Index = () => {
       <section className="py-20">
         <div className="container mx-auto px-4 lg:px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 font-poppins">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
               Our <span className="gradient-text">Specializations</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-poppins">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               We provide comprehensive equipment solutions across multiple industries, 
               ensuring quality and reliability in every product we deliver.
             </p>
@@ -278,13 +193,13 @@ const Index = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-center justify-center">
                       <div className="text-center text-white transform transition-transform duration-300 hover:scale-110">
                         <div className="text-4xl mb-2 animate-pulse-glow">{category.icon}</div>
-                        <h3 className="text-xl font-semibold font-poppins">{category.name}</h3>
+                        <h3 className="text-xl font-semibold">{category.name}</h3>
                       </div>
                     </div>
                   </div>
                   <CardContent className="p-6">
-                    <p className="text-muted-foreground mb-4 font-poppins">{category.description}</p>
-                    <div className="flex items-center text-primary font-medium group font-poppins">
+                    <p className="text-muted-foreground mb-4">{category.description}</p>
+                    <div className="flex items-center text-primary font-medium group">
                       Explore Products
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                     </div>
@@ -300,10 +215,10 @@ const Index = () => {
       <section className="py-20 bg-gradient-industrial">
         <div className="container mx-auto px-4 lg:px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 font-poppins">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
               Featured <span className="gradient-text">Products</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-poppins">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Discover our most popular and highly-rated equipment solutions, 
               trusted by professionals across various industries.
             </p>
@@ -321,7 +236,7 @@ const Index = () => {
 
           <div className="text-center">
             <Link to="/marketplace">
-              <Button size="lg" className="btn-primary font-poppins">
+              <Button size="lg" className="btn-primary">
                 View All Products
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -334,10 +249,10 @@ const Index = () => {
       <section className="py-20">
         <div className="container mx-auto px-4 lg:px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 font-poppins">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
               Why Choose <span className="gradient-text">Ottoman Enterprises</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-poppins">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               We combine industry expertise, premium products, and exceptional service 
               to deliver solutions that exceed expectations.
             </p>
@@ -348,8 +263,8 @@ const Index = () => {
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300 hover:bg-primary/20 hover:scale-110">
                 <Award className="h-8 w-8 text-primary transition-all duration-300 hover:scale-110" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 font-poppins">Premium Quality</h3>
-              <p className="text-muted-foreground font-poppins">
+              <h3 className="text-xl font-semibold mb-3">Premium Quality</h3>
+              <p className="text-muted-foreground">
                 All our equipment meets the highest industry standards with comprehensive warranties and certifications.
               </p>
             </Card>
@@ -358,8 +273,8 @@ const Index = () => {
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300 hover:bg-primary/20 hover:scale-110">
                 <Users className="h-8 w-8 text-primary transition-all duration-300 hover:scale-110" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 font-poppins">Expert Support</h3>
-              <p className="text-muted-foreground font-poppins">
+              <h3 className="text-xl font-semibold mb-3">Expert Support</h3>
+              <p className="text-muted-foreground">
                 Our experienced team provides comprehensive consultation, installation, and ongoing technical support.
               </p>
             </Card>
@@ -368,8 +283,8 @@ const Index = () => {
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300 hover:bg-primary/20 hover:scale-110">
                 <Zap className="h-8 w-8 text-primary transition-all duration-300 hover:scale-110" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 font-poppins">Fast Delivery</h3>
-              <p className="text-muted-foreground font-poppins">
+              <h3 className="text-xl font-semibold mb-3">Fast Delivery</h3>
+              <p className="text-muted-foreground">
                 Quick processing and reliable delivery ensures your projects stay on schedule with minimal downtime.
               </p>
             </Card>
@@ -380,21 +295,21 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-hero">
         <div className="container mx-auto px-4 lg:px-6 text-center text-white">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4 font-poppins">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
             Ready to Upgrade Your Equipment?
           </h2>
-          <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto font-poppins">
+          <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
             Let our experts help you find the perfect solutions for your business needs. 
             Get started with a free consultation today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
-              <Button size="lg" className="bg-white text-foreground hover:bg-white/90 text-lg px-8 py-3 font-poppins">
+              <Button size="lg" className="bg-white text-foreground hover:bg-white/90 text-lg px-8 py-3">
                 Get Free Quote
               </Button>
             </Link>
             <Link to="/projects">
-              <Button size="lg" variant="outline" className="text-lg px-8 py-3 border-white/30 text-white hover:bg-white/10 font-poppins">
+              <Button size="lg" variant="outline" className="text-lg px-8 py-3 border-white/30 text-white hover:bg-white/10">
                 View Our Work
               </Button>
             </Link>
