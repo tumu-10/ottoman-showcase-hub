@@ -16,7 +16,7 @@ const caseStudies = {
     teamSize: "12 specialists",
     budget: "$2.5M",
     client: "Al-Rashid Agricultural Holdings",
-    image: "agricultural-tractor.jpg",
+    image: "/agricultural-tractor.jpg",
     challenge: "The Al-Rashid Agricultural Complex was operating with outdated equipment from the 1990s, resulting in inefficient water usage, low crop yields, and high operational costs. The client needed a complete modernization while maintaining continuous operations.",
     solution: "We implemented a phased modernization approach, introducing state-of-the-art irrigation systems, precision farming equipment, and smart monitoring technologies. Our team worked in sections to minimize operational disruption.",
     results: [
@@ -56,7 +56,7 @@ const caseStudies = {
     teamSize: "8 specialists",
     budget: "$850K",
     client: "Golden Hive Co-operative",
-    image: "beekeeping-hive.jpg",
+    image: "/beekeeping-hive.jpg",
     challenge: "The Golden Hive Co-operative needed to establish a modern honey production facility from scratch, including hive setup, extraction equipment, and training for 25 local beekeepers with varying experience levels.",
     solution: "We designed a comprehensive beekeeping operation with modern Langstroth hive systems, professional-grade extraction equipment, and implemented a structured training program combining theoretical knowledge with hands-on experience.",
     results: [
