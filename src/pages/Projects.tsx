@@ -13,7 +13,7 @@ const projects = [
     location: "Antalya, Turkey",
     date: "2024",
     teamSize: "12 specialists",
-    image: "/src/assets/agricultural-tractor.jpg",
+    image: "/src/assets/project-agricultural.jpg",
     highlights: [
       "Installed 15 ProField Tractor 2000X units",
       "Deployed smart irrigation covering 500 hectares", 
