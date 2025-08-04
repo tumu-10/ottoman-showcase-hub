@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
+import ottomanLogo from "@/assets/ICON-8.png";
+import textLogo from "@/assets/WORDMARK-8.png";
 
 interface PreloaderProps {
   onComplete: () => void;
@@ -40,15 +42,16 @@ export default function Preloader({ onComplete }: PreloaderProps) {
       <div className="relative text-center">
         {/* Logo Animation */}
         <div className="mb-8 animate-scale-in">
-          <div className="w-24 h-24 mx-auto mb-4 bg-gradient-primary rounded-2xl flex items-center justify-center shadow-elegant animate-bounce">
-            <span className="text-primary-foreground font-bold text-3xl">OE</span>
+          <div className="w-24 h-24 mx-auto mb-4 border border-primary rounded-2xl flex items-center justify-center shadow-elegant animate-bounce">
+             <img 
+              src={ottomanLogo} 
+              alt="Ottoman Enterprises Logo" 
+              className="w-10 h-10 object-contain"
+            />
           </div>
           <h1 className="text-3xl font-bold mb-2 gradient-text animate-fade-in delay-300">
             Ottoman Enterprises
           </h1>
-          <p className="text-muted-foreground animate-fade-in delay-500">
-            Professional Equipment Solutions
-          </p>
         </div>
 
         {/* Progress Bar */}
