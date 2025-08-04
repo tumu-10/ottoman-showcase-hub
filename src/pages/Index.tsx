@@ -99,7 +99,7 @@ const Index = () => {
               <span className="text-reveal gradient-text" style={{ animationDelay: '0.4s' }}>Enterprises</span>
             </h1>
             
-            <p className="text-xl lg:text-2xl mb-8 text-white/90 leading-relaxed text-reveal" style={{ animationDelay: '0.6s' }}>
+            <p className="text-xl lg:text-xl mb-8 text-white/90 leading-relaxed text-reveal" style={{ animationDelay: '0.6s' }}>
               Your trusted partner for professional-grade equipment across agricultural, 
               medical, vocational, and specialized industries.
             </p>
