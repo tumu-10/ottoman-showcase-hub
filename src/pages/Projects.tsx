@@ -13,7 +13,7 @@ const projects = [
     location: "Antalya, Turkey",
     date: "2024",
     teamSize: "12 specialists",
-    image: "/src/assets/project-agricultural.jpg",
+    image: "agricultural-tractor.jpg",
     highlights: [
       "Installed 15 ProField Tractor 2000X units",
       "Deployed smart irrigation covering 500 hectares", 
@@ -30,7 +30,7 @@ const projects = [
     location: "Izmir, Turkey",
     date: "2024",
     teamSize: "8 specialists",
-    image: "/src/assets/beekeeping-hive.jpg",
+    image: "beekeeping-hive.jpg",
     highlights: [
       "Set up 200 BeeMax Langstroth hive systems",
       "Installed professional honey extraction facility",
@@ -47,7 +47,7 @@ const projects = [
     location: "Istanbul, Turkey", 
     date: "2024",
     teamSize: "15 specialists",
-    image: "/src/assets/project-medical.jpg",
+    image: "project-medical.jpg",
     highlights: [
       "Installed 50+ pieces of advanced medical equipment",
       "Provided comprehensive staff training",
@@ -64,7 +64,7 @@ const projects = [
     location: "Bursa, Turkey",
     date: "2023",
     teamSize: "10 specialists", 
-    image: "/src/assets/vocational-tools.jpg",
+    image: "vocational-tools.jpg",
     highlights: [
       "Equipped 8 specialized workshops",
       "Installed 200+ professional tools",
@@ -81,7 +81,7 @@ const projects = [
     location: "Ankara, Turkey",
     date: "2023",
     teamSize: "6 specialists",
-    image: "/src/assets/promotional-items.jpg",
+    image: "promotional-items.jpg",
     highlights: [
       "Produced 50,000+ branded items",
       "Delivered to 25 international offices",
@@ -98,7 +98,7 @@ const projects = [
     location: "Konya, Turkey",
     date: "2023", 
     teamSize: "14 specialists",
-    image: "/src/assets/project-tech.jpg",
+    image: "project-tech.jpg",
     highlights: [
       "Integrated IoT sensors across 300 hectares",
       "Deployed autonomous farming equipment",
