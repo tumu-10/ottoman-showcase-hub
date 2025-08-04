@@ -45,7 +45,7 @@ const Index = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000);
+    }, 10000);
     return () => clearInterval(interval);
   }, []);
 
@@ -73,7 +73,7 @@ const Index = () => {
         ))}
         
         {/* Gradient Overlay */}
-        <div className="hero-overlay" />
+        
         
         {/* Floating Vector Elements */}
         <div className="absolute top-20 right-20 w-16 h-16 text-accent/20 vector-float">
@@ -180,9 +180,9 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {categories.map((category, index) => (
-              <Link key={category.id} to={`/marketplace?category=${category.id}`}>
+         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:flex lg:flex-wrap lg:justify-center lg:gap-x-10 lg:gap-y-12">
+            {categories.map((category) => (
+              <Link key={category.id} to={`/marketplace?category=${category.id}`} className="w-full max-w-sm">
                 <Card className="product-card h-full interactive-card">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img
@@ -208,6 +208,7 @@ const Index = () => {
               </Link>
             ))}
           </div>
+
         </div>
       </section>
 
@@ -309,7 +310,7 @@ const Index = () => {
               </Button>
             </Link>
             <Link to="/projects">
-              <Button size="lg" variant="outline" className="text-lg px-8 py-3 border-white/30 text-white hover:bg-white/10">
+              <Button size="lg" variant="outline" className="text-lg px-8 py-3 border-white/30 text-black hover:bg-white/10">
                 View Our Work
               </Button>
             </Link>

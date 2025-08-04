@@ -3,7 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import ottomanLogo from "@/assets/ottoman-logo.png";
+import ottomanLogo from "@/assets/ICON-8.png";
+import textLogo from "@/assets/WORDMARK-8.png";
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -18,23 +19,25 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-      <div className="container mx-auto px-4 lg:px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
+      <div className="relative flex items-center justify-between h-16 px-4 md:px-8">
+         {/* Logo - Left */}
+          <Link to="/" className="flex items-center z-10">
             <img 
               src={ottomanLogo} 
               alt="Ottoman Enterprises Logo" 
-              className="w-10 h-10 object-contain transition-all duration-300 group-hover:scale-105 animate-pulse-glow"
+              className="w-10 h-10 object-contain"
             />
             <div className="hidden sm:block">
-              <h1 className="text-xl font-semibold text-foreground">Ottoman Enterprises</h1>
-              <p className="text-xs text-muted-foreground">Professional Equipment Solutions</p>
+              <img 
+                src={textLogo} 
+                alt="Ottoman Enterprises Logo Text" 
+                className="h-10 object-contain"
+              />
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Navigation - Center */}
+          <nav className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -54,8 +57,8 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Desktop Actions */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* Actions - Right */}
+          <div className="hidden md:flex items-center space-x-4 z-10">
             <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground hover-scale">
               <Search className="h-4 w-4" />
             </Button>
@@ -106,7 +109,6 @@ export default function Header() {
             </nav>
           </div>
         )}
-      </div>
-    </header>
+      </header>
   );
 }

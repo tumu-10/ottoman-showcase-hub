@@ -19,7 +19,7 @@ export default function ProductCard({ product, onViewDetails, className }: Produ
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
-      currency: 'USD',
+      currency: 'UGX',
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     }).format(price);

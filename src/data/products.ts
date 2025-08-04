@@ -53,7 +53,7 @@ const agriculturalProducts: Product[] = [
     id: 'ag-001',
     name: 'ProField Tractor 2000X',
     category: 'agricultural',
-    price: 85000,
+    price: 85000000,
     description: 'Heavy-duty agricultural tractor with advanced hydraulic system and precision GPS guidance.',
     specifications: {
       'Engine Power': '200 HP',
@@ -72,7 +72,7 @@ const agriculturalProducts: Product[] = [
     id: 'ag-002',
     name: 'SmartSeed Planter Pro',
     category: 'agricultural',
-    price: 45000,
+    price: 4500000,
     description: 'Precision seed planting equipment with variable rate technology for optimal crop placement.',
     specifications: {
       'Planting Width': '12 rows',
@@ -91,7 +91,7 @@ const agriculturalProducts: Product[] = [
     id: 'ag-003',
     name: 'HarvestMax Combine 500',
     category: 'agricultural',
-    price: 320000,
+    price: 32000000,
     description: 'Advanced combine harvester with intelligent grain separation and yield monitoring.',
     specifications: {
       'Cutting Width': '9.1 m',
@@ -111,7 +111,7 @@ const agriculturalProducts: Product[] = [
     id: 'ag-004',
     name: 'IrrigatePro Sprinkler System',
     category: 'agricultural',
-    price: 12000,
+    price: 1200000,
     description: 'Automated irrigation system with smart water management and remote monitoring.',
     specifications: {
       'Coverage Area': '50 hectares',
@@ -186,7 +186,7 @@ const beekeepingProducts: Product[] = [
     id: 'bk-001',
     name: 'BeeMax Langstroth Hive System',
     category: 'beekeeping',
-    price: 285,
+    price: 285000000,
     description: 'Complete 10-frame Langstroth hive with frames, foundation, and ventilated cover.',
     specifications: {
       'Frame Count': '10 frames',
@@ -205,7 +205,7 @@ const beekeepingProducts: Product[] = [
     id: 'bk-002',
     name: 'Professional Bee Suit Ultra',
     category: 'beekeeping',
-    price: 165,
+    price: 1650,
     description: 'Premium ventilated bee suit with attached veil and reinforced knees.',
     specifications: {
       'Material': 'Cotton-polyester blend',
