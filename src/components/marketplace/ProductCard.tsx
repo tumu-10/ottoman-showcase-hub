@@ -40,7 +40,7 @@ export default function ProductCard({ product, onViewDetails, className }: Produ
           src={product.images[0]}
           alt={product.name}
           className={cn(
-            "absolute inset-0 w-full h-full object-cover transition-opacity duration-300",
+            "absolute inset-0 w-full h-full object-contain transition-opacity duration-300",
             imageLoaded ? "opacity-100" : "opacity-0"
           )}
           onLoad={() => setImageLoaded(true)}

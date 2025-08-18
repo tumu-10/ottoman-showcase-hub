@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, CheckCircle, Star, Users, Award, Zap } from 'lucide-react';
-import { getFeaturedProducts, categories } from '@/data/products';
+import { getFeaturedProducts, categories } from '@/data/new';
 import ProductCard from '@/components/marketplace/ProductCard';
 import { useState, useEffect } from 'react';
 import ProductModal from '@/components/marketplace/ProductModal';

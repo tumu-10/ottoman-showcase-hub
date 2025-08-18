@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import ProductCard from '@/components/marketplace/ProductCard';
 import ProductModal from '@/components/marketplace/ProductModal';
-import { allProducts, categories, getProductsByCategory, Product, ProductCategory } from '@/data/products';
+import { allProducts, categories, getProductsByCategory, Product, ProductCategory } from '@/data/new';
 import { cn } from '@/lib/utils';
 
 import categoryAgricultural from '@/assets/category-agricultural.jpg';
@@ -32,36 +32,41 @@ export default function Marketplace() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isProductModalOpen, setIsProductModalOpen] = useState(false);
 
-  const filteredProducts = useMemo(() => {
-    let products = selectedCategory === 'all' ? allProducts : getProductsByCategory(selectedCategory);
-    
-    // Filter by search query
-    if (searchQuery) {
-      products = products.filter(product =>
-        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.manufacturer.toLowerCase().includes(searchQuery.toLowerCase())
-      );
+const filteredProducts = useMemo(() => {
+  let products = [...allProducts];
+
+  // Filter by category
+  if (selectedCategory !== 'all') {
+    products = products.filter(
+      product => product.category === selectedCategory
+    );
+  }
+
+  // Filter by search query
+  if (searchQuery) {
+    const query = searchQuery.toLowerCase();
+    products = products.filter(
+      product =>
+        product.name.toLowerCase().includes(query) ||
+        product.description.toLowerCase().includes(query) ||
+        product.manufacturer.toLowerCase().includes(query)
+    );
+  }
+
+  // Sort products
+  products.sort((a, b) => {
+    switch (sortBy) {
+      case 'price-low': return a.price - b.price;
+      case 'price-high': return b.price - a.price;
+      case 'name': return a.name.localeCompare(b.name);
+      case 'featured': return Number(b.featured) - Number(a.featured);
+      default: return 0;
     }
+  });
 
-    // Sort products
-    products.sort((a, b) => {
-      switch (sortBy) {
-        case 'price-low':
-          return a.price - b.price;
-        case 'price-high':
-          return b.price - a.price;
-        case 'name':
-          return a.name.localeCompare(b.name);
-        case 'featured':
-          return Number(b.featured) - Number(a.featured);
-        default:
-          return 0;
-      }
-    });
+  return products;
+}, [selectedCategory, searchQuery, sortBy]);
 
-    return products;
-  }, [selectedCategory, searchQuery, sortBy]);
 
   const handleViewProduct = (product: Product) => {
     setSelectedProduct(product);
@@ -141,7 +146,7 @@ export default function Marketplace() {
           <img
             src={categoryImages[selectedCategory]}
             alt={categories.find(c => c.id === selectedCategory)?.name}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           />
           <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
             <div className="text-center text-white">
