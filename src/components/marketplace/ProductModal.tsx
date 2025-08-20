@@ -35,7 +35,7 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
-      currency: 'USD',
+      currency: 'UGX',
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     }).format(price);
