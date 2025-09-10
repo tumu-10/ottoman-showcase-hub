@@ -91,7 +91,7 @@ const Index = () => {
         <div className="relative container mx-auto px-4 lg:px-6 h-full flex items-center">
           <div className="max-w-2xl text-white">
             <Badge className="mb-4 bg-primary/20 text-primary-foreground border-primary/30 animate-fade-in">
-              Professional Equipment Solutions Since 2009
+              Professional Equipment Solutions Since 2010
             </Badge>
             
             <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
