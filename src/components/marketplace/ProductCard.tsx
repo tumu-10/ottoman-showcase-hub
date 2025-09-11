@@ -163,10 +163,7 @@ export default function ProductCard({ product, onViewDetails, className }: Produ
             </Button>
           </a>
           <div>
-           
           </div>
-          
-         
         </div>
       </CardContent>
     </Card>

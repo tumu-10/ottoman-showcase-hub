@@ -38,9 +38,9 @@ const categoryImages = {
 
 // Example subcategories data
 const subcategoriesData: Record<ProductCategory, string[]> = {
-  agricultural: ['Farm Tools', 'Seeds', 'Fertilizers', 'Irrigation Systems', 'Bee Hives', 'Protective Gear'],
+  agricultural: ['Farm Tools', 'Seeds', 'Fertilizers', 'Irrigation Systems','Protective Gear'],
   beekeeping: ['Bee Hives', 'Protective Gear', 'Honey Extractors'],
-  vocational: ['Welding', 'Carpentry', 'Plumbing', 'Electronics'],
+  vocational: ['Welding', 'Carpentry', 'Plumbing', 'Electronics', 'Tailoring', 'Hairdressing'],
   medical: ['Diagnostic Equipment', 'Surgical Tools', 'Lab Equipment'],
   promotional: ['T-Shirts', 'Banners', 'Flyers', 'Custom Gifts']
 };
