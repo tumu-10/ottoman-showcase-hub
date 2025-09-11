@@ -17,6 +17,31 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
+  const handleGetQuote = () => {
+  const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const phoneNumber = '+256762833491';
+  const email = 'kagimujayp01@gmail.com';
+  const subject = encodeURIComponent('Quote Request');
+  const body = encodeURIComponent('Hello, I would like to request a quote.');
+
+  const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
+
+  if (isMobile) {
+    // Mobile: open dialer
+    window.location.href = `tel:${phoneNumber}`;
+  } else {
+    const confirmWhatsApp = window.confirm(
+      `Do you want to contact via WhatsApp?\nPress Cancel to send an email instead.`
+    );
+    if (confirmWhatsApp) {
+      window.open(`https://wa.me/${phoneNumber.replace('+','')}?text=${encodeURIComponent('Hello, I want a quote.')}`, '_blank');
+    } else {
+      window.open(gmailLink, '_blank');
+    }
+  }
+};
+
+
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="relative flex items-center justify-between h-16 px-4 md:px-8">
@@ -62,7 +87,7 @@ export default function Header() {
             <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground hover-scale">
               <Search className="h-4 w-4" />
             </Button>
-            <Button size="sm" className="btn-primary hover-scale">
+            <Button size="sm" className="btn-primary hover-scale" onClick={handleGetQuote}>
               Get Quote
             </Button>
           </div>

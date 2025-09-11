@@ -49,6 +49,30 @@ const Index = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const handleGetQuote = () => {
+  const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const phoneNumber = '+256762833491';
+  const email = 'kagimujayp01@gmail.com';
+  const subject = encodeURIComponent('Quote Request');
+  const body = encodeURIComponent('Hello, I would like to request a quote.');
+
+  const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
+
+  if (isMobile) {
+    // Mobile: open dialer
+    window.location.href = `tel:${phoneNumber}`;
+  } else {
+    const confirmWhatsApp = window.confirm(
+      `Do you want to contact via WhatsApp?\nPress Cancel to send an email instead.`
+    );
+    if (confirmWhatsApp) {
+      window.open(`https://wa.me/${phoneNumber.replace('+','')}?text=${encodeURIComponent('Hello, I want a quote.')}`, '_blank');
+    } else {
+      window.open(gmailLink, '_blank');
+    }
+  }
+};
+
   const handleViewProduct = (product: Product) => {
     setSelectedProduct(product);
     setIsProductModalOpen(true);
@@ -111,8 +135,8 @@ const Index = () => {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Link to="/contact">
-                <Button size="lg" variant="outline" className="text-lg px-8 py-3 bg-white/10 border-white/30 text-white hover:bg-white hover:text-foreground hover-scale">
+              <Link to="">
+                <Button size="lg" onClick={handleGetQuote} variant="outline" className="text-lg px-8 py-3 bg-white/10 border-white/30 text-white hover:bg-white hover:text-foreground hover-scale">
                   Get Consultation
                 </Button>
               </Link>
