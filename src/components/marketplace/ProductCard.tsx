@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Heart, Eye } from 'lucide-react';
+import { Heart, Eye, Phone } from 'lucide-react';
 import { Product } from '@/data/products';
 import { cn } from '@/lib/utils';
 
@@ -23,6 +23,22 @@ export default function ProductCard({ product, onViewDetails, className }: Produ
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     }).format(price);
+  };
+
+  const phoneNumber = '+256762833491';
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      // On mobile, open the dialer
+      window.location.href = `tel:${phoneNumber}`;
+    } else {
+      // On desktop, just show the number
+      alert(`Please call: ${phoneNumber}`);
+    }
   };
 
   return (
@@ -135,27 +151,22 @@ export default function ProductCard({ product, onViewDetails, className }: Produ
         </div>
 
         {/* Price */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-6">
+          <a href="tel:+256762833491" onClick={(e) => e.stopPropagation()} className="w-full">
+            <Button
+              variant="default"
+              className="w-full flex items-center justify-center gap-2 font-bold group-hover:bg-primary group-hover:text-secondary transition-colors duration-200"
+              onClick={handleClick}
+            >
+              <Phone className="h-4 w-4" />
+              Contact for Quote
+            </Button>
+          </a>
           <div>
-            <span className="text-lg font-bold text-primary">
-              {formatPrice(product.price)}
-            </span>
-            <div className="text-xs text-muted-foreground">
-              Contact for quote
-            </div>
+           
           </div>
           
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={(e) => {
-              e.stopPropagation();
-              onViewDetails(product);
-            }}
-            className="text-xs hover:bg-primary hover:text-primary-foreground"
-          >
-            View Details
-          </Button>
+         
         </div>
       </CardContent>
     </Card>

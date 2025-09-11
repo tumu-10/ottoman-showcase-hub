@@ -89,7 +89,7 @@ export default function Contact() {
                   <p className="font-medium">Ottoman Enterprises Ltd.</p>
                   <p className="text-muted-foreground">
                     Naalya opposite Bethany High School<br />
-                    Equipment Plaza, Floor 3<br />
+                  9J8W+25Q, Kampala - Northern Bypass Hwy,<br />
                     Kampala, Uganda
                   </p>
                 </div>
@@ -107,16 +107,9 @@ export default function Contact() {
                 <div className="space-y-2 text-sm">
                   <div>
                     <p className="font-medium">Main Office</p>
-                    <p className="text-muted-foreground">+256 212 555 0123</p>
+                    <p className="text-muted-foreground">+256 761 769290</p>
                   </div>
-                  <div>
-                    <p className="font-medium">Sales Department</p>
-                    <p className="text-muted-foreground">+256 212 555 0124</p>
-                  </div>
-                  <div>
-                    <p className="font-medium">Technical Support</p>
-                    <p className="text-muted-foreground">+256 212 555 0125</p>
-                  </div>
+                 
                 </div>
               </CardContent>
             </Card>

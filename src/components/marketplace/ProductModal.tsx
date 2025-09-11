@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from 'react'; 
 import {
   Dialog,
   DialogContent,
@@ -32,15 +32,6 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
 
   if (!product) return null;
 
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'UGX',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(price);
-  };
-
   const nextImage = () => {
     setCurrentImageIndex((prev) => 
       prev === product.images.length - 1 ? 0 : prev + 1
@@ -51,6 +42,41 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
     setCurrentImageIndex((prev) => 
       prev === 0 ? product.images.length - 1 : prev - 1
     );
+  };
+
+  const handlePhoneOrWhatsApp = (message?: string) => {
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const phoneNumber = '+256762833491';
+    const whatsappURL = `https://wa.me/${phoneNumber.replace('+','')}?text=${encodeURIComponent(message || 'Hello, I would like a quote.')}`;
+
+    if (isMobile) {
+      // Open mobile dialer
+      window.location.href = `tel:${phoneNumber}`;
+    } else {
+      // Desktop: ask for WhatsApp or show number
+      const confirmWhatsApp = window.confirm(
+        `Do you want to contact us via WhatsApp Web?\nPress Cancel to see the phone number.`
+      );
+      if (confirmWhatsApp) {
+        window.open(whatsappURL, '_blank');
+      } else {
+        alert(`Please call or whattsapp for quote: ${phoneNumber}`);
+      }
+    }
+  };
+
+  const handleShare = () => {
+    const shareData = {
+      title: product.name,
+      text: `Check out this product: ${product.name}`,
+      url: window.location.href,
+    };
+    if (navigator.share) {
+      navigator.share(shareData).catch(() => alert('Sharing failed'));
+    } else {
+      navigator.clipboard.writeText(shareData.url);
+      alert('Product link copied to clipboard');
+    }
   };
 
   return (
@@ -65,11 +91,11 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Image Carousel */}
           <div className="space-y-4">
-            <div className="relative aspect-square bg-muted rounded-lg overflow-hidden">
+            <div className="relative aspect-square bg-muted rounded-lg overflow-hidden bg-white">
               <img
                 src={product.images[currentImageIndex]}
                 alt={product.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
               
               {product.images.length > 1 && (
@@ -126,7 +152,7 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
                     <img
                       src={image}
                       alt={`${product.name} view ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   </button>
                 ))}
@@ -145,17 +171,9 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
               <p className="text-muted-foreground">{product.description}</p>
             </div>
 
-            {/* Price */}
-            <div className="p-4 bg-gradient-card rounded-lg border">
-              <div className="flex items-baseline gap-2">
-                <span className="text-3xl font-bold text-primary">
-                  {formatPrice(product.price)}
-                </span>
-                <span className="text-sm text-muted-foreground">
-                  Starting price
-                </span>
-              </div>
-              <p className="text-sm text-muted-foreground mt-1">
+            {/* Quote Info */}
+            <div className="p-4 bg-gradient-card rounded-lg border text-center">
+              <p className="text-primary font-bold mt-1">
                 Contact us for volume pricing and custom quotes
               </p>
             </div>
@@ -163,11 +181,12 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
             {/* Action Buttons */}
             <div className="flex gap-3">
               <Button 
-                className="flex-1 btn-primary hover-scale" 
+                className="flex-1 btn-primary hover-scale flex items-center justify-center gap-2 font-bold" 
                 disabled={!product.inStock}
                 size="lg"
+                onClick={() => handlePhoneOrWhatsApp(`Hello, I want a quote for ${product.name}`)}
               >
-                <Mail className="h-4 w-4 mr-2" />
+                <Phone className="h-4 w-4" />
                 {product.inStock ? 'Request Quote' : 'Out of Stock'}
               </Button>
               
@@ -180,7 +199,12 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
                 <Heart className={cn("h-4 w-4", isLiked && "fill-current")} />
               </Button>
               
-              <Button variant="outline" size="lg" className="hover-scale">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="hover-scale"
+                onClick={handleShare}
+              >
                 <Share2 className="h-4 w-4" />
               </Button>
             </div>
@@ -189,14 +213,37 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
             <div className="p-4 bg-secondary/50 rounded-lg">
               <h3 className="font-semibold mb-2">Need assistance?</h3>
               <div className="flex gap-2">
-                <Button variant="outline" size="sm" className="flex-1">
-                  <Mail className="h-4 w-4 mr-2" />
-                  Email Quote
-                </Button>
-                <Button variant="outline" size="sm" className="flex-1">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="flex-1"
+                  onClick={() => handlePhoneOrWhatsApp(`Hello, I need assistance for ${product.name}`)}
+                >
                   <Phone className="h-4 w-4 mr-2" />
                   Call Expert
                 </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                className="flex-1"
+                onClick={() => {
+                  const email = 'kagimujayp01@gmail.com';
+                  const subject = encodeURIComponent(`Quote Request: ${product.name}`);
+                  const body = encodeURIComponent(`Hello, I would like a quote for ${product.name}.`);
+                  
+                  // Gmail web link
+                  const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
+                  
+                  // Open Gmail in new tab
+                  window.open(gmailLink, '_blank');
+                }}
+              >
+                <Mail className="h-4 w-4 mr-2" />
+                Email Quote
+              </Button>
+
+
+
               </div>
             </div>
 
